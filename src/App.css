@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --skew: -20deg;
+  
+}
+
+/* Background Pattern */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(7) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2324214eff'/><path d='M0 0h10v10H0z'  stroke-width='1' stroke='none' fill='%23242e66ff'/><path d='M10 10h10v10H10z'  stroke-width='1' stroke='none' fill='%23242e66ff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+
+}
+
+
+/* Base button styling */
+button {
+  background: #12153b;
+  color: rgb(255, 255, 255);
+  min-width: 250px;
+  font-size: 26px;
+  padding: 6px 20px;
+  border-radius: 15px;
+  border: 3px solid #ff68e7;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.05s ease-in-out;
+  position: relative;
+  box-shadow: 4px 4px 0px #ff68e7; /* Pink drop shadow */
+  transform: skewX(var( --skew));
+  text-transform: uppercase;
+}
+
+/* Hover effect (white border and shadow) */
+button:hover {
+  border-color: #FFBEFC;
+  box-shadow: 4px 4px 0px #FFBEFC; /* White shadow on hover */
+}
+
+/* Clicked effect (deep purple border and shadow) */
+button:active {
+  border-color: #9a0079;
+  box-shadow: 1px 1px 0px #980578;
+  transform: translateY(3px) translateX(3px) skewX(var( --skew));  /* Slight press-down effect */
+}
+
+/* Game Box */
+.game-container {
+  width: 960px;
+  min-height: 640px;
+  background: #24214E;
+  padding: 30px;
+  border-radius: 50px;
+  -webkit-box-shadow: 12px 12px 0px 0px #1B1434;
+  box-shadow: 12px 12px 0px 0px #1B1434;
+  text-align: center;
+  border: 3px solid #3345AB;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  transition: border 0.15s ease-out;
+
+}
+
+.game-container.correct {
+  border-color: #00CA6C;
+}
+
+/* When answer is incorrect (red border) */
+.game-container.incorrect {
+  border-color: #F00040;
+}
+
+/* Title */
+.game-title, .game-subtitle {
+  color: white;
+  font-size: 64px;
+  font-weight: bold;
+  transform:  skewX(var( --skew));
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.game-subtitle {
+  font-size: 20px;
+  margin-top: 5px;
+  text-transform: none;
+}
+
+.author {
+  font-size: 28px;
+}
+
+.quote {
+  font-size: 36px;
+}
+
+.quote-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  font-family: Rajdhani;
+}
+
+
+/* Quiz Question */
+.question {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Answer Buttons */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.option-button:hover {
+  background: #8227ff;
+}
+
+/* Result Text */
+.result-text {
+  color: white;
+  font-size: 1.8rem;
+}
