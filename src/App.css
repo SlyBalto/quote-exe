@@ -103,6 +103,14 @@ button:active {
   text-transform: uppercase;
 }
 
+.game-title.correct {
+  color: #00CA6C;
+}
+
+.game-title.incorrect {
+  color: #F00040;
+}
+
 .game-subtitle {
   font-size: 20px;
   margin-top: 5px;

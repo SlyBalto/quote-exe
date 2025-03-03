@@ -123,7 +123,7 @@ function App() {
 
         {page === "quiz" && (
           <>
-            <h1 className='game-title'>{viewResults ? (quotes[0]?.real ? "Real Quote" : "ChatGPT") : "Real or AI?"}</h1>
+            <h1 className={`game-title ${viewResults ? (isCorrect ? "correct" : "incorrect") : ""}`}>{viewResults ? (quotes[0]?.real ? "Real Quote" : "ChatGPT") : "Real or AI?"}</h1>
             {/* { if statement ? (show when true) : (show when false) } */}
             <QuoteInfo quote={quotes[0]?.content} author={quotes[0]?.author} />
             <div className="options">
