@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import QuoteInfo from './quoteInfo'; // capitalizing Q confuses VS Code, for some reason.
 import { shuffleArray } from "./utils";
+import Scoreboard from './scoreboard';
 
 function App() {
   const [quotes, setQuotes] = useState([]); // holds current quotes
@@ -9,6 +10,8 @@ function App() {
   const [isCorrect, setIsCorrect] = useState(null);
   const [viewResults, setViewResults] = useState(false);
   const [canStart, setCanStart] = useState(false);
+  const [scoreCorrect, setScoreCorrect] = useState(0)
+  const [scoreIncorrect, setScoreIncorrect] = useState(0)
 
   async function updateQuotes(fetchCount) {
     try {
@@ -71,7 +74,13 @@ function App() {
 
   const showResults = (answer) => {
     setViewResults(true)
-      setIsCorrect(answer === quotes[0].real); // does the user's answer (true or false) match the quote's 'real' key value?
+      setIsCorrect(answer === quotes[0].real);
+      handleScorecardUpate(answer === quotes[0].real)
+        // does the user's answer (true or false) match the quote's 'real' key value?
+    }
+
+    const handleScorecardUpate = (answerWasRight) => {
+      answerWasRight ? setScoreCorrect(scoreCorrect + 1) : setScoreIncorrect(scoreIncorrect + 1)
     }
 
   const handleNextQuote = () => {
@@ -114,7 +123,7 @@ function App() {
 
         {page === "quiz" && (
           <>
-            <h1 className='game-title'>{viewResults ? (quotes[0]?.real ? "Real Quote" : "ChatGPT") : "Real or AI?"}</h1>
+            <h1 className={`game-title ${viewResults ? (isCorrect ? "correct" : "incorrect") : ""}`}>{viewResults ? (quotes[0]?.real ? "Real Quote" : "ChatGPT") : "Real or AI?"}</h1>
             {/* { if statement ? (show when true) : (show when false) } */}
             <QuoteInfo quote={quotes[0]?.content} author={quotes[0]?.author} />
             <div className="options">
@@ -131,10 +140,13 @@ function App() {
                   </button>
                 </>
               )}
+
             </div>
+            <Scoreboard correct={scoreCorrect} incorrect={scoreIncorrect} />
+
           </>
         )}
-
+     
       </div>
     </div>
   );
