@@ -3,7 +3,13 @@
 
 :root {
   --skew: -20deg;
-  
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Background Pattern */
@@ -50,7 +56,7 @@ button:active {
 }
 
 /* Game Box */
-.game-container {
+.game-container, .scorecard {
   width: 960px;
   min-height: 640px;
   background: #24214E;
@@ -66,7 +72,16 @@ button:active {
   justify-content: center; /* Centers content vertically */
   align-items: center; /* Centers content horizontally */
   transition: border 0.15s ease-out;
+}
 
+.scorecard {
+  width: 200px;
+  min-height: 100px;
+  height: 100px;
+  border-radius: 15px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
 .game-container.correct {
@@ -86,6 +101,14 @@ button:active {
   transform:  skewX(var( --skew));
   margin-top: 20px;
   text-transform: uppercase;
+}
+
+.game-title.correct {
+  color: #00CA6C;
+}
+
+.game-title.incorrect {
+  color: #F00040;
 }
 
 .game-subtitle {
