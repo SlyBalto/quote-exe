@@ -1,7 +1,10 @@
 # 📝 Quote.exe
 
-## 📌 About the Game
+## 📌 About this Game
 This is a fun quiz game where players must guess whether a quote is **real** or **AI-generated** by ChatGPT! The game fetches quotes from an API and challenges the player’s ability to distinguish between human-written and AI-generated text.
+
+## 🎥 Demonstration
+[Watch a demo for the game in action](https://youtu.be/R3MTi8PlBL0)
 
 ## 🚀 Built With
 - [Vite](https://vitejs.dev/) – A fast frontend build tool for modern web development
